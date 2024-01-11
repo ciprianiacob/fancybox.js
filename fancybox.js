@@ -6,20 +6,20 @@
         e = e || {},
         t && t.data && (e = h(t.data.options, e)),
         o = e.$target || n(t.currentTarget).trigger("blur"),
-        (a = n.fancybox.getInstance()) && a.$trigger && a.$trigger.is(o) || (e.selector ? s = n(e.selector) : (i = o.attr("data-fancybox") || "",
+        (a = n.fancyboxdha.getInstance()) && a.$trigger && a.$trigger.is(o) || (e.selector ? s = n(e.selector) : (i = o.attr("data-fancyboxdha") || "",
         i ? (s = t.data ? t.data.items : [],
-        s = s.length ? s.filter('[data-fancybox="' + i + '"]') : n('[data-fancybox="' + i + '"]')) : s = [o]),
+        s = s.length ? s.filter('[data-fancyboxdha="' + i + '"]') : n('[data-fancyboxdha="' + i + '"]')) : s = [o]),
         r = n(s).index(o),
         r < 0 && (r = 0),
-        a = n.fancybox.open(s, e, r),
+        a = n.fancyboxdha.open(s, e, r),
         a.$trigger = o))
     }
     if (t.console = t.console || {
         info: function(t) {}
     },
     n) {
-        if (n.fn.fancybox)
-            return void console.info("fancyBox already initialized");
+        if (n.fn.fancyboxdha)
+            return void console.info("fancyboxdha already initialized");
         var a = {
             closeExisting: !1,
             loop: !1,
@@ -40,12 +40,12 @@
             ajax: {
                 settings: {
                     data: {
-                        fancybox: !0
+                        fancyboxdha: !0
                     }
                 }
             },
             iframe: {
-                tpl: '<iframe id="fancybox-frame{rnd}" name="fancybox-frame{rnd}" class="fancybox-iframe" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen" src=""></iframe>',
+                tpl: '<iframe id="fancyboxdha-frame{rnd}" name="fancyboxdha-frame{rnd}" class="fancyboxdha-iframe" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen" src=""></iframe>',
                 preload: !0,
                 css: {},
                 attr: {
@@ -53,7 +53,7 @@
                 }
             },
             video: {
-                tpl: '<video class="fancybox-video" controls controlsList="nodownload" poster="{{poster}}"><source src="{{src}}" type="{{format}}" />Sorry, your browser doesn\'t support embedded videos, <a href="{{src}}">download</a> and watch with your favorite video player!</video>',
+                tpl: '<video class="fancyboxdha-video" controls controlsList="nodownload" poster="{{poster}}"><source src="{{src}}" type="{{format}}" />Sorry, your browser doesn\'t support embedded videos, <a href="{{src}}">download</a> and watch with your favorite video player!</video>',
                 format: "",
                 autoStart: !0
             },
@@ -65,16 +65,16 @@
             transitionDuration: 366,
             slideClass: "",
             baseClass: "",
-            baseTpl: '<div class="fancybox-container" role="dialog" tabindex="-1"><div class="fancybox-bg"></div><div class="fancybox-inner"><div class="fancybox-infobar"><span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span></div><div class="fancybox-toolbar">{{buttons}}</div><div class="fancybox-navigation">{{arrows}}</div><div class="fancybox-stage"></div><div class="fancybox-caption"><div class="fancybox-caption__body"></div></div></div></div>',
-            spinnerTpl: '<div class="fancybox-loading"></div>',
-            errorTpl: '<div class="fancybox-error"><p>{{ERROR}}</p></div>',
+            baseTpl: '<div class="fancyboxdha-container" role="dialog" tabindex="-1"><div class="fancyboxdha-bg"></div><div class="fancyboxdha-inner"><div class="fancyboxdha-infobar"><span data-fancyboxdha-index></span>&nbsp;/&nbsp;<span data-fancyboxdha-count></span></div><div class="fancyboxdha-toolbar">{{buttons}}</div><div class="fancyboxdha-navigation">{{arrows}}</div><div class="fancyboxdha-stage"></div><div class="fancyboxdha-caption"><div class="fancyboxdha-caption__body"></div></div></div></div>',
+            spinnerTpl: '<div class="fancyboxdha-loading"></div>',
+            errorTpl: '<div class="fancyboxdha-error"><p>{{ERROR}}</p></div>',
             btnTpl: {
-                download: '<a download data-fancybox-download class="fancybox-button fancybox-button--download" title="{{DOWNLOAD}}" href="javascript:;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.62 17.09V19H5.38v-1.91zm-2.97-6.96L17 11.45l-5 4.87-5-4.87 1.36-1.32 2.68 2.64V5h1.92v7.77z"/></svg></a>',
-                zoom: '<button data-fancybox-zoom class="fancybox-button fancybox-button--zoom" title="{{ZOOM}}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.7 17.3l-3-3a5.9 5.9 0 0 0-.6-7.6 5.9 5.9 0 0 0-8.4 0 5.9 5.9 0 0 0 0 8.4 5.9 5.9 0 0 0 7.7.7l3 3a1 1 0 0 0 1.3 0c.4-.5.4-1 0-1.5zM8.1 13.8a4 4 0 0 1 0-5.7 4 4 0 0 1 5.7 0 4 4 0 0 1 0 5.7 4 4 0 0 1-5.7 0z"/></svg></button>',
-                close: '<button data-fancybox-close class="fancybox-button fancybox-button--close" title="{{CLOSE}}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 10.6L6.6 5.2 5.2 6.6l5.4 5.4-5.4 5.4 1.4 1.4 5.4-5.4 5.4 5.4 1.4-1.4-5.4-5.4 5.4-5.4-1.4-1.4-5.4 5.4z"/></svg></button>',
-                arrowLeft: '<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}"><div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.28 15.7l-1.34 1.37L5 12l4.94-5.07 1.34 1.38-2.68 2.72H19v1.94H8.6z"/></svg></div></button>',
-                arrowRight: '<button data-fancybox-next class="fancybox-button fancybox-button--arrow_right" title="{{NEXT}}"><div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.4 12.97l-2.68 2.72 1.34 1.38L19 12l-4.94-5.07-1.34 1.38 2.68 2.72H5v1.94z"/></svg></div></button>',
-                smallBtn: '<button type="button" data-fancybox-close class="fancybox-button fancybox-close-small" title="{{CLOSE}}"><svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24"><path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"/></svg></button>'
+                download: '<a download data-fancyboxdha-download class="fancyboxdha-button fancyboxdha-button--download" title="{{DOWNLOAD}}" href="javascript:;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.62 17.09V19H5.38v-1.91zm-2.97-6.96L17 11.45l-5 4.87-5-4.87 1.36-1.32 2.68 2.64V5h1.92v7.77z"/></svg></a>',
+                zoom: '<button data-fancyboxdha-zoom class="fancyboxdha-button fancyboxdha-button--zoom" title="{{ZOOM}}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.7 17.3l-3-3a5.9 5.9 0 0 0-.6-7.6 5.9 5.9 0 0 0-8.4 0 5.9 5.9 0 0 0 0 8.4 5.9 5.9 0 0 0 7.7.7l3 3a1 1 0 0 0 1.3 0c.4-.5.4-1 0-1.5zM8.1 13.8a4 4 0 0 1 0-5.7 4 4 0 0 1 5.7 0 4 4 0 0 1 0 5.7 4 4 0 0 1-5.7 0z"/></svg></button>',
+                close: '<button data-fancyboxdha-close class="fancyboxdha-button fancyboxdha-button--close" title="{{CLOSE}}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 10.6L6.6 5.2 5.2 6.6l5.4 5.4-5.4 5.4 1.4 1.4 5.4-5.4 5.4 5.4 1.4-1.4-5.4-5.4 5.4-5.4-1.4-1.4-5.4 5.4z"/></svg></button>',
+                arrowLeft: '<button data-fancyboxdha-prev class="fancyboxdha-button fancyboxdha-button--arrow_left" title="{{PREV}}"><div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.28 15.7l-1.34 1.37L5 12l4.94-5.07 1.34 1.38-2.68 2.72H19v1.94H8.6z"/></svg></div></button>',
+                arrowRight: '<button data-fancyboxdha-next class="fancyboxdha-button fancyboxdha-button--arrow_right" title="{{NEXT}}"><div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.4 12.97l-2.68 2.72 1.34 1.38L19 12l-4.94-5.07-1.34 1.38 2.68 2.72H5v1.94z"/></svg></div></button>',
+                smallBtn: '<button type="button" data-fancyboxdha-close class="fancyboxdha-button fancyboxdha-close-small" title="{{CLOSE}}"><svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24"><path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"/></svg></button>'
             },
             parentEl: "body",
             hideScrollbar: !0,
@@ -97,7 +97,7 @@
             thumbs: {
                 autoStart: !1,
                 hideOnClose: !0,
-                parentEl: ".fancybox-container",
+                parentEl: ".fancyboxdha-container",
                 axis: "y"
             },
             wheel: "auto",
@@ -204,22 +204,22 @@
         }
           , g = function(t) {
             var o, i;
-            return !(!t || t.ownerDocument !== e) && (n(".fancybox-container").css("pointer-events", "none"),
+            return !(!t || t.ownerDocument !== e) && (n(".fancyboxdha-container").css("pointer-events", "none"),
             o = {
                 x: t.getBoundingClientRect().left + t.offsetWidth / 2,
                 y: t.getBoundingClientRect().top + t.offsetHeight / 2
             },
             i = e.elementFromPoint(o.x, o.y) === t,
-            n(".fancybox-container").css("pointer-events", ""),
+            n(".fancyboxdha-container").css("pointer-events", ""),
             i)
         }
           , b = function(t, e, o) {
             var i = this;
             i.opts = h({
                 index: o
-            }, n.fancybox.defaults),
+            }, n.fancyboxdha.defaults),
             n.isPlainObject(e) && (i.opts = h(i.opts, e)),
-            n.fancybox.isMobile && (i.opts = h(i.opts, i.opts.mobile)),
+            n.fancyboxdha.isMobile && (i.opts = h(i.opts, i.opts.mobile)),
             i.id = i.opts.id || ++c,
             i.currIndex = parseInt(i.opts.index, 10) || 0,
             i.prevIndex = null,
@@ -234,20 +234,20 @@
         n.extend(b.prototype, {
             init: function() {
                 var o, i, a = this, s = a.group[a.currIndex], r = s.opts;
-                r.closeExisting && n.fancybox.close(!0),
-                n("body").addClass("fancybox-active"),
-                !n.fancybox.getInstance() && !1 !== r.hideScrollbar && !n.fancybox.isMobile && e.body.scrollHeight > t.innerHeight && (n("head").append('<style id="fancybox-style-noscroll" type="text/css">.compensate-for-scrollbar{margin-right:' + (t.innerWidth - e.documentElement.clientWidth) + "px;}</style>"),
+                r.closeExisting && n.fancyboxdha.close(!0),
+                n("body").addClass("fancyboxdha-active"),
+                !n.fancyboxdha.getInstance() && !1 !== r.hideScrollbar && !n.fancyboxdha.isMobile && e.body.scrollHeight > t.innerHeight && (n("head").append('<style id="fancyboxdha-style-noscroll" type="text/css">.compensate-for-scrollbar{margin-right:' + (t.innerWidth - e.documentElement.clientWidth) + "px;}</style>"),
                 n("body").addClass("compensate-for-scrollbar")),
                 i = "",
                 n.each(r.buttons, function(t, e) {
                     i += r.btnTpl[e] || ""
                 }),
-                o = n(a.translate(a, r.baseTpl.replace("{{buttons}}", i).replace("{{arrows}}", r.btnTpl.arrowLeft + r.btnTpl.arrowRight))).attr("id", "fancybox-container-" + a.id).addClass(r.baseClass).data("FancyBox", a).appendTo(r.parentEl),
+                o = n(a.translate(a, r.baseTpl.replace("{{buttons}}", i).replace("{{arrows}}", r.btnTpl.arrowLeft + r.btnTpl.arrowRight))).attr("id", "fancyboxdha-container-" + a.id).addClass(r.baseClass).data("fancyboxdha", a).appendTo(r.parentEl),
                 a.$refs = {
                     container: o
                 },
                 ["bg", "inner", "infobar", "toolbar", "stage", "caption", "navigation"].forEach(function(t) {
-                    a.$refs[t] = o.find(".fancybox-" + t)
+                    a.$refs[t] = o.find(".fancyboxdha-" + t)
                 }),
                 a.trigger("onInit"),
                 a.activate(),
@@ -276,7 +276,7 @@
                     },
                     l.opts = n.extend(!0, {}, o.opts, d),
                     n.isArray(d.buttons) && (l.opts.buttons = d.buttons),
-                    n.fancybox.isMobile && l.opts.mobile && (l.opts = h(l.opts, l.opts.mobile)),
+                    n.fancyboxdha.isMobile && l.opts.mobile && (l.opts = h(l.opts, l.opts.mobile)),
                     a = l.type || l.opts.type,
                     r = l.src || "",
                     !a && r && ((s = r.match(/\.(mp4|mov|ogv|webm)((\?|#).*)?$/i)) ? (a = "video",
@@ -332,19 +332,19 @@
             addEvents: function() {
                 var e = this;
                 e.removeEvents(),
-                e.$refs.container.on("click.fb-close", "[data-fancybox-close]", function(t) {
+                e.$refs.container.on("click.fb-close", "[data-fancyboxdha-close]", function(t) {
                     t.stopPropagation(),
                     t.preventDefault(),
                     e.close(t)
-                }).on("touchstart.fb-prev click.fb-prev", "[data-fancybox-prev]", function(t) {
+                }).on("touchstart.fb-prev click.fb-prev", "[data-fancyboxdha-prev]", function(t) {
                     t.stopPropagation(),
                     t.preventDefault(),
                     e.previous()
-                }).on("touchstart.fb-next click.fb-next", "[data-fancybox-next]", function(t) {
+                }).on("touchstart.fb-next click.fb-next", "[data-fancyboxdha-next]", function(t) {
                     t.stopPropagation(),
                     t.preventDefault(),
                     e.next()
-                }).on("click.fb", "[data-fancybox-zoom]", function(t) {
+                }).on("click.fb", "[data-fancyboxdha-zoom]", function(t) {
                     e[e.isScaledDown() ? "scaleToActual" : "scaleToFit"]()
                 }),
                 s.on("orientationchange.fb resize.fb", function(t) {
@@ -355,10 +355,10 @@
                     setTimeout(function() {
                         e.$refs.stage.show(),
                         e.update(t)
-                    }, n.fancybox.isMobile ? 600 : 250))
+                    }, n.fancyboxdha.isMobile ? 600 : 250))
                 }),
                 r.on("keydown.fb", function(t) {
-                    var o = n.fancybox ? n.fancybox.getInstance() : null
+                    var o = n.fancyboxdha ? n.fancyboxdha.getInstance() : null
                       , i = o.current
                       , a = t.keyCode || t.which;
                     if (9 == a)
@@ -417,45 +417,45 @@
                     n.isNumeric(e) ? s.forcedDuration = e : e = s.opts[o ? "animationDuration" : "transitionDuration"],
                     e = parseInt(e, 10),
                     i = f.isMoved(s),
-                    s.$slide.addClass("fancybox-slide--current"),
+                    s.$slide.addClass("fancyboxdha-slide--current"),
                     o)
                         return s.opts.animationEffect && e && f.$refs.container.css("transition-duration", e + "ms"),
-                        f.$refs.container.addClass("fancybox-is-open").trigger("focus"),
+                        f.$refs.container.addClass("fancyboxdha-is-open").trigger("focus"),
                         f.loadSlide(s),
                         void f.preload("image");
-                    c = n.fancybox.getTranslate(r.$slide),
-                    l = n.fancybox.getTranslate(f.$refs.stage),
+                    c = n.fancyboxdha.getTranslate(r.$slide),
+                    l = n.fancyboxdha.getTranslate(f.$refs.stage),
                     n.each(f.slides, function(t, e) {
-                        n.fancybox.stop(e.$slide, !0)
+                        n.fancyboxdha.stop(e.$slide, !0)
                     }),
                     r.pos !== s.pos && (r.isComplete = !1),
-                    r.$slide.removeClass("fancybox-slide--complete fancybox-slide--current"),
+                    r.$slide.removeClass("fancyboxdha-slide--complete fancyboxdha-slide--current"),
                     i ? (u = c.left - (r.pos * c.width + r.pos * r.opts.gutter),
                     n.each(f.slides, function(t, o) {
-                        o.$slide.removeClass("fancybox-animated").removeClass(function(t, e) {
-                            return (e.match(/(^|\s)fancybox-fx-\S+/g) || []).join(" ")
+                        o.$slide.removeClass("fancyboxdha-animated").removeClass(function(t, e) {
+                            return (e.match(/(^|\s)fancyboxdha-fx-\S+/g) || []).join(" ")
                         });
                         var i = o.pos * c.width + o.pos * o.opts.gutter;
-                        n.fancybox.setTranslate(o.$slide, {
+                        n.fancyboxdha.setTranslate(o.$slide, {
                             top: 0,
                             left: i - l.left + u
                         }),
-                        o.pos !== s.pos && o.$slide.addClass("fancybox-slide--" + (o.pos > s.pos ? "next" : "previous")),
+                        o.pos !== s.pos && o.$slide.addClass("fancyboxdha-slide--" + (o.pos > s.pos ? "next" : "previous")),
                         p(o.$slide),
-                        n.fancybox.animate(o.$slide, {
+                        n.fancyboxdha.animate(o.$slide, {
                             top: 0,
                             left: (o.pos - s.pos) * c.width + (o.pos - s.pos) * o.opts.gutter
                         }, e, function() {
                             o.$slide.css({
                                 transform: "",
                                 opacity: ""
-                            }).removeClass("fancybox-slide--next fancybox-slide--previous"),
+                            }).removeClass("fancyboxdha-slide--next fancyboxdha-slide--previous"),
                             o.pos === f.currPos && f.complete()
                         })
-                    })) : e && s.opts.transitionEffect && (d = "fancybox-animated fancybox-fx-" + s.opts.transitionEffect,
-                    r.$slide.addClass("fancybox-slide--" + (r.pos > s.pos ? "next" : "previous")),
-                    n.fancybox.animate(r.$slide, d, e, function() {
-                        r.$slide.removeClass(d).removeClass("fancybox-slide--next fancybox-slide--previous")
+                    })) : e && s.opts.transitionEffect && (d = "fancyboxdha-animated fancyboxdha-fx-" + s.opts.transitionEffect,
+                    r.$slide.addClass("fancyboxdha-slide--" + (r.pos > s.pos ? "next" : "previous")),
+                    n.fancyboxdha.animate(r.$slide, d, e, function() {
+                        r.$slide.removeClass(d).removeClass("fancyboxdha-slide--next fancyboxdha-slide--previous")
                     }, !1)),
                     s.isLoaded ? f.revealContent(s) : f.loadSlide(s),
                     f.preload("image")
@@ -465,7 +465,7 @@
                 var e, o, i = this;
                 return o = t % i.group.length,
                 o = o < 0 ? i.group.length + o : o,
-                !i.slides[t] && i.group[o] && (e = n('<div class="fancybox-slide"></div>').appendTo(i.$refs.stage),
+                !i.slides[t] && i.group[o] && (e = n('<div class="fancyboxdha-slide"></div>').appendTo(i.$refs.stage),
                 i.slides[t] = n.extend(!0, {}, i.group[o], {
                     pos: t,
                     $slide: e,
@@ -475,14 +475,14 @@
                 i.slides[t]
             },
             scaleToActual: function(t, e, o) {
-                var i, a, s, r, c, l = this, d = l.current, u = d.$content, f = n.fancybox.getTranslate(d.$slide).width, p = n.fancybox.getTranslate(d.$slide).height, h = d.width, g = d.height;
+                var i, a, s, r, c, l = this, d = l.current, u = d.$content, f = n.fancyboxdha.getTranslate(d.$slide).width, p = n.fancyboxdha.getTranslate(d.$slide).height, h = d.width, g = d.height;
                 l.isAnimating || l.isMoved() || !u || "image" != d.type || !d.isLoaded || d.hasError || (l.isAnimating = !0,
-                n.fancybox.stop(u),
+                n.fancyboxdha.stop(u),
                 t = void 0 === t ? .5 * f : t,
                 e = void 0 === e ? .5 * p : e,
-                i = n.fancybox.getTranslate(u),
-                i.top -= n.fancybox.getTranslate(d.$slide).top,
-                i.left -= n.fancybox.getTranslate(d.$slide).left,
+                i = n.fancyboxdha.getTranslate(u),
+                i.top -= n.fancyboxdha.getTranslate(d.$slide).top,
+                i.left -= n.fancyboxdha.getTranslate(d.$slide).left,
                 r = h / i.width,
                 c = g / i.height,
                 a = .5 * f - .5 * h,
@@ -494,7 +494,7 @@
                 s > 0 && (s = 0),
                 s < p - g && (s = p - g)),
                 l.updateCursor(h, g),
-                n.fancybox.animate(u, {
+                n.fancyboxdha.animate(u, {
                     top: s,
                     left: a,
                     scaleX: r,
@@ -507,10 +507,10 @@
             scaleToFit: function(t) {
                 var e, o = this, i = o.current, a = i.$content;
                 o.isAnimating || o.isMoved() || !a || "image" != i.type || !i.isLoaded || i.hasError || (o.isAnimating = !0,
-                n.fancybox.stop(a),
+                n.fancyboxdha.stop(a),
                 e = o.getFitPos(i),
                 o.updateCursor(e.width, e.height),
-                n.fancybox.animate(a, {
+                n.fancyboxdha.animate(a, {
                     top: e.top,
                     left: e.left,
                     scaleX: e.width / a.width(),
@@ -521,8 +521,8 @@
             },
             getFitPos: function(t) {
                 var e, o, i, a, s = this, r = t.$content, c = t.$slide, l = t.width || t.opts.width, d = t.height || t.opts.height, u = {};
-                return !!(t.isLoaded && r && r.length) && (e = n.fancybox.getTranslate(s.$refs.stage).width,
-                o = n.fancybox.getTranslate(s.$refs.stage).height,
+                return !!(t.isLoaded && r && r.length) && (e = n.fancyboxdha.getTranslate(s.$refs.stage).width,
+                o = n.fancyboxdha.getTranslate(s.$refs.stage).height,
                 e -= parseFloat(c.css("paddingLeft")) + parseFloat(c.css("paddingRight")) + parseFloat(r.css("marginLeft")) + parseFloat(r.css("marginRight")),
                 o -= parseFloat(c.css("paddingTop")) + parseFloat(c.css("paddingBottom")) + parseFloat(r.css("marginTop")) + parseFloat(r.css("marginBottom")),
                 l && d || (l = e,
@@ -552,13 +552,13 @@
                   , s = t.height || t.opts.height
                   , r = t.$slide;
                 o.adjustCaption(t),
-                i && (a || s || "video" === t.contentType) && !t.hasError && (n.fancybox.stop(i),
-                n.fancybox.setTranslate(i, o.getFitPos(t)),
+                i && (a || s || "video" === t.contentType) && !t.hasError && (n.fancyboxdha.stop(i),
+                n.fancyboxdha.setTranslate(i, o.getFitPos(t)),
                 t.pos === o.currPos && (o.isAnimating = !1,
                 o.updateCursor())),
                 o.adjustLayout(t),
                 r.length && (r.trigger("refresh"),
-                t.pos === o.currPos && o.$refs.toolbar.add(o.$refs.navigation.find(".fancybox-button--arrow_right")).toggleClass("compensate-for-scrollbar", r.get(0).scrollHeight > r.get(0).clientHeight)),
+                t.pos === o.currPos && o.$refs.toolbar.add(o.$refs.navigation.find(".fancyboxdha-button--arrow_right")).toggleClass("compensate-for-scrollbar", r.get(0).scrollHeight > r.get(0).clientHeight)),
                 o.trigger("onUpdate", t, e)
             },
             centerSlide: function(t) {
@@ -569,8 +569,8 @@
                     transform: "",
                     opacity: ""
                 }),
-                i.parent().children().removeClass("fancybox-slide--previous fancybox-slide--next"),
-                n.fancybox.animate(i, {
+                i.parent().children().removeClass("fancyboxdha-slide--previous fancyboxdha-slide--next"),
+                n.fancyboxdha.animate(i, {
                     top: 0,
                     left: 0,
                     opacity: 1
@@ -584,18 +584,18 @@
             },
             isMoved: function(t) {
                 var e, o, i = t || this.current;
-                return !!i && (o = n.fancybox.getTranslate(this.$refs.stage),
-                e = n.fancybox.getTranslate(i.$slide),
-                !i.$slide.hasClass("fancybox-animated") && (Math.abs(e.top - o.top) > .5 || Math.abs(e.left - o.left) > .5))
+                return !!i && (o = n.fancyboxdha.getTranslate(this.$refs.stage),
+                e = n.fancyboxdha.getTranslate(i.$slide),
+                !i.$slide.hasClass("fancyboxdha-animated") && (Math.abs(e.top - o.top) > .5 || Math.abs(e.left - o.left) > .5))
             },
             updateCursor: function(t, e) {
                 var o, i, a = this, s = a.current, r = a.$refs.container;
-                s && !a.isClosing && a.Guestures && (r.removeClass("fancybox-is-zoomable fancybox-can-zoomIn fancybox-can-zoomOut fancybox-can-swipe fancybox-can-pan"),
+                s && !a.isClosing && a.Guestures && (r.removeClass("fancyboxdha-is-zoomable fancyboxdha-can-zoomIn fancyboxdha-can-zoomOut fancyboxdha-can-swipe fancyboxdha-can-pan"),
                 o = a.canPan(t, e),
                 i = !!o || a.isZoomable(),
-                r.toggleClass("fancybox-is-zoomable", i),
-                n("[data-fancybox-zoom]").prop("disabled", !i),
-                o ? r.addClass("fancybox-can-pan") : i && ("zoom" === s.opts.clickContent || n.isFunction(s.opts.clickContent) && "zoom" == s.opts.clickContent(s)) ? r.addClass("fancybox-can-zoomIn") : s.opts.touch && (s.opts.touch.vertical || a.group.length > 1) && "video" !== s.contentType && r.addClass("fancybox-can-swipe"))
+                r.toggleClass("fancyboxdha-is-zoomable", i),
+                n("[data-fancyboxdha-zoom]").prop("disabled", !i),
+                o ? r.addClass("fancyboxdha-can-pan") : i && ("zoom" === s.opts.clickContent || n.isFunction(s.opts.clickContent) && "zoom" == s.opts.clickContent(s)) ? r.addClass("fancyboxdha-can-zoomIn") : s.opts.touch && (s.opts.touch.vertical || a.group.length > 1) && "video" !== s.contentType && r.addClass("fancyboxdha-can-swipe"))
             },
             isZoomable: function() {
                 var t, e = this, n = e.current;
@@ -612,7 +612,7 @@
                   , i = !1
                   , a = o.current
                   , s = a.$content;
-                return void 0 !== t && void 0 !== e ? i = t < a.width && e < a.height : s && (i = n.fancybox.getTranslate(s),
+                return void 0 !== t && void 0 !== e ? i = t < a.width && e < a.height : s && (i = n.fancyboxdha.getTranslate(s),
                 i = i.width < a.width && i.height < a.height),
                 i
             },
@@ -625,7 +625,7 @@
                 void 0 !== t && void 0 !== e ? a = {
                     width: t,
                     height: e
-                } : i.isComplete && (a = n.fancybox.getTranslate(i.$content)),
+                } : i.isComplete && (a = n.fancyboxdha.getTranslate(i.$content)),
                 a && s && (s = Math.abs(a.width - s.width) > 1.5 || Math.abs(a.height - s.height) > 1.5)),
                 s
             },
@@ -683,7 +683,7 @@
                     i.isClosing || !t.isLoading || e && e.length && e[0].complete || t.hasError || i.showLoading(t)
                 }, 50),
                 i.checkSrcset(t),
-                t.$content = n('<div class="fancybox-content"></div>').addClass("fancybox-is-hidden").appendTo(t.$slide.addClass("fancybox-slide--image")),
+                t.$content = n('<div class="fancyboxdha-content"></div>').addClass("fancyboxdha-is-hidden").appendTo(t.$slide.addClass("fancyboxdha-slide--image")),
                 !1 !== t.opts.preload && t.opts.width && t.opts.height && t.thumb && (t.width = t.opts.width,
                 t.height = t.opts.height,
                 o = e.createElement("img"),
@@ -696,7 +696,7 @@
                     i.afterLoad(t)
                 }
                 ,
-                t.$ghost = n(o).addClass("fancybox-image").appendTo(t.$content).attr("src", t.thumb)),
+                t.$ghost = n(o).addClass("fancyboxdha-image").appendTo(t.$content).attr("src", t.thumb)),
                 i.setBigImage(t)
             },
             checkSrcset: function(e) {
@@ -749,7 +749,7 @@
                         t.$ghost && !o.isClosing && t.$ghost.hide()
                     }, Math.min(300, Math.max(1e3, t.height / 1600))),
                     o.hideLoading(t))
-                }).addClass("fancybox-image").attr("src", t.src).appendTo(t.$content),
+                }).addClass("fancyboxdha-image").attr("src", t.src).appendTo(t.$content),
                 (i.complete || "complete" == i.readyState) && a.naturalWidth && a.naturalHeight ? a.trigger("load") : i.error && a.trigger("error")
             },
             resolveImageSlideSize: function(t, e, n) {
@@ -764,8 +764,8 @@
             },
             setIframe: function(t) {
                 var e, o = this, i = t.opts.iframe, a = t.$slide;
-                t.$content = n('<div class="fancybox-content' + (i.preload ? " fancybox-is-hidden" : "") + '"></div>').css(i.css).appendTo(a),
-                a.addClass("fancybox-slide--" + t.contentType),
+                t.$content = n('<div class="fancyboxdha-content' + (i.preload ? " fancyboxdha-is-hidden" : "") + '"></div>').css(i.css).appendTo(a),
+                a.addClass("fancyboxdha-slide--" + t.contentType),
                 t.$iframe = e = n(i.tpl.replace(/\{rnd\}/g, (new Date).getTime())).attr(i.attr).appendTo(t.$content),
                 i.preload ? (o.showLoading(t),
                 e.on("load.fb error.fb", function(e) {
@@ -791,7 +791,7 @@
                         void 0 === c && (c = Math.ceil(Math.max(o[0].clientHeight, o.outerHeight(!0)))),
                         s.css("height", c || ""),
                         a.css("overflow", "auto")),
-                        s.removeClass("fancybox-is-hidden")
+                        s.removeClass("fancyboxdha-is-hidden")
                     }
                 })) : o.afterLoad(t),
                 e.attr("src", t.src),
@@ -807,15 +807,15 @@
             setContent: function(t, e) {
                 var o = this;
                 o.isClosing || (o.hideLoading(t),
-                t.$content && n.fancybox.stop(t.$content),
+                t.$content && n.fancyboxdha.stop(t.$content),
                 t.$slide.empty(),
-                l(e) && e.parent().length ? ((e.hasClass("fancybox-content") || e.parent().hasClass("fancybox-content")) && e.parents(".fancybox-slide").trigger("onReset"),
+                l(e) && e.parent().length ? ((e.hasClass("fancyboxdha-content") || e.parent().hasClass("fancyboxdha-content")) && e.parents(".fancyboxdha-slide").trigger("onReset"),
                 t.$placeholder = n("<div>").hide().insertAfter(e),
                 e.css("display", "inline-block")) : t.hasError || ("string" === n.type(e) && (e = n("<div>").append(n.trim(e)).contents()),
                 t.opts.filter && (e = n("<div>").html(e).find(t.opts.filter))),
                 t.$slide.one("onReset", function() {
                     n(this).find("video,audio").trigger("pause"),
-                    t.$placeholder && (t.$placeholder.after(e.removeClass("fancybox-content").hide()).remove(),
+                    t.$placeholder && (t.$placeholder.after(e.removeClass("fancyboxdha-content").hide()).remove(),
                     t.$placeholder = null),
                     t.$smallBtn && (t.$smallBtn.remove(),
                     t.$smallBtn = null),
@@ -824,21 +824,21 @@
                     t.isRevealed = !1)
                 }),
                 n(e).appendTo(t.$slide),
-                n(e).is("video,audio") && (n(e).addClass("fancybox-video"),
+                n(e).is("video,audio") && (n(e).addClass("fancyboxdha-video"),
                 n(e).wrap("<div></div>"),
                 t.contentType = "video",
                 t.opts.width = t.opts.width || n(e).attr("width"),
                 t.opts.height = t.opts.height || n(e).attr("height")),
-                t.$content = t.$slide.children().filter("div,form,main,video,audio,article,.fancybox-content").first(),
+                t.$content = t.$slide.children().filter("div,form,main,video,audio,article,.fancyboxdha-content").first(),
                 t.$content.siblings().hide(),
                 t.$content.length || (t.$content = t.$slide.wrapInner("<div></div>").children().first()),
-                t.$content.addClass("fancybox-content"),
-                t.$slide.addClass("fancybox-slide--" + t.contentType),
+                t.$content.addClass("fancyboxdha-content"),
+                t.$slide.addClass("fancyboxdha-slide--" + t.contentType),
                 o.afterLoad(t))
             },
             setError: function(t) {
                 t.hasError = !0,
-                t.$slide.trigger("onReset").removeClass("fancybox-slide--" + t.contentType).addClass("fancybox-slide--error"),
+                t.$slide.trigger("onReset").removeClass("fancyboxdha-slide--" + t.contentType).addClass("fancyboxdha-slide--error"),
                 t.contentType = "html",
                 this.setContent(t, this.translate(t, t.opts.errorTpl)),
                 t.pos === this.currPos && (this.isAnimating = !1)
@@ -863,7 +863,7 @@
                     return 2 == t.button && t.preventDefault(),
                     !0
                 }),
-                "image" === t.type && n('<div class="fancybox-spaceball"></div>').appendTo(t.$content)),
+                "image" === t.type && n('<div class="fancyboxdha-spaceball"></div>').appendTo(t.$content)),
                 e.adjustCaption(t),
                 e.adjustLayout(t),
                 t.pos === e.currPos && e.updateCursor(),
@@ -871,7 +871,7 @@
             },
             adjustCaption: function(t) {
                 var e, n = this, o = t || n.current, i = o.opts.caption, a = o.opts.preventCaptionOverlap, s = n.$refs.caption, r = !1;
-                s.toggleClass("fancybox-caption--separate", a),
+                s.toggleClass("fancyboxdha-caption--separate", a),
                 a && i && i.length && (o.pos !== n.currPos ? (e = s.clone().appendTo(s.parent()),
                 e.children().eq(0).empty().html(i),
                 r = e.outerHeight(!0),
@@ -904,31 +904,31 @@
                 "auto" == a && (a = Math.abs(t.width / t.height - l.width / l.height) > .1),
                 a && (l.opacity = .1,
                 c.opacity = 1),
-                n.fancybox.setTranslate(t.$content.removeClass("fancybox-is-hidden"), l),
+                n.fancyboxdha.setTranslate(t.$content.removeClass("fancyboxdha-is-hidden"), l),
                 p(t.$content),
-                void n.fancybox.animate(t.$content, c, i, function() {
+                void n.fancyboxdha.animate(t.$content, c, i, function() {
                     s.isAnimating = !1,
                     s.complete()
                 })) : (s.updateSlide(t),
-                e ? (n.fancybox.stop(r),
-                o = "fancybox-slide--" + (t.pos >= s.prevPos ? "next" : "previous") + " fancybox-animated fancybox-fx-" + e,
-                r.addClass(o).removeClass("fancybox-slide--current"),
-                t.$content.removeClass("fancybox-is-hidden"),
+                e ? (n.fancyboxdha.stop(r),
+                o = "fancyboxdha-slide--" + (t.pos >= s.prevPos ? "next" : "previous") + " fancyboxdha-animated fancyboxdha-fx-" + e,
+                r.addClass(o).removeClass("fancyboxdha-slide--current"),
+                t.$content.removeClass("fancyboxdha-is-hidden"),
                 p(r),
                 "image" !== t.type && t.$content.hide().show(0),
-                void n.fancybox.animate(r, "fancybox-slide--current", i, function() {
+                void n.fancyboxdha.animate(r, "fancyboxdha-slide--current", i, function() {
                     r.removeClass(o).css({
                         transform: "",
                         opacity: ""
                     }),
                     t.pos === s.currPos && s.complete()
-                }, !0)) : (t.$content.removeClass("fancybox-is-hidden"),
+                }, !0)) : (t.$content.removeClass("fancyboxdha-is-hidden"),
                 u || !d || "image" !== t.type || t.hasError || t.$content.hide().fadeIn("fast"),
                 void (t.pos === s.currPos && s.complete())))
             },
             getThumbPos: function(t) {
                 var e, o, i, a, s, r = !1, c = t.$thumb;
-                return !(!c || !g(c[0])) && (e = n.fancybox.getTranslate(c),
+                return !(!c || !g(c[0])) && (e = n.fancyboxdha.getTranslate(c),
                 o = parseFloat(c.css("border-top-width") || 0),
                 i = parseFloat(c.css("border-right-width") || 0),
                 a = parseFloat(c.css("border-bottom-width") || 0),
@@ -949,9 +949,9 @@
                 o.$slide.siblings().trigger("onReset"),
                 e.preload("inline"),
                 p(o.$slide),
-                o.$slide.addClass("fancybox-slide--complete"),
+                o.$slide.addClass("fancyboxdha-slide--complete"),
                 n.each(e.slides, function(t, o) {
-                    o.pos >= e.currPos - 1 && o.pos <= e.currPos + 1 ? i[o.pos] = o : o && (n.fancybox.stop(o.$slide),
+                    o.pos >= e.currPos - 1 && o.pos <= e.currPos + 1 ? i[o.pos] = o : o && (n.fancyboxdha.stop(o.$slide),
                     o.$slide.off().remove())
                 }),
                 e.slides = i),
@@ -975,7 +975,7 @@
             },
             focus: function(t, o) {
                 var i, a, s = this, r = ["a[href]", "area[href]", 'input:not([disabled]):not([type="hidden"]):not([aria-hidden])', "select:not([disabled]):not([aria-hidden])", "textarea:not([disabled]):not([aria-hidden])", "button:not([disabled]):not([aria-hidden])", "iframe", "object", "embed", "video", "audio", "[contenteditable]", '[tabindex]:not([tabindex^="-"])'].join(",");
-                s.isClosing || (i = !t && s.current && s.current.isComplete ? s.current.$slide.find("*:visible" + (o ? ":not(.fancybox-close-small)" : "")) : s.$refs.container.find("*:visible"),
+                s.isClosing || (i = !t && s.current && s.current.isComplete ? s.current.$slide.find("*:visible" + (o ? ":not(.fancyboxdha-close-small)" : "")) : s.$refs.container.find("*:visible"),
                 i = i.filter(r).filter(function() {
                     return "hidden" !== n(this).css("visibility") && !n(this).hasClass("disabled")
                 }),
@@ -986,8 +986,8 @@
             },
             activate: function() {
                 var t = this;
-                n(".fancybox-container").each(function() {
-                    var e = n(this).data("FancyBox");
+                n(".fancyboxdha-container").each(function() {
+                    var e = n(this).data("fancyboxdha");
                     e && e.id !== t.id && !e.isClosing && (e.trigger("onDeactivate"),
                     e.removeEvents(),
                     e.isVisible = !1)
@@ -1011,16 +1011,16 @@
                 a = f.$content,
                 o = f.opts.animationEffect,
                 i = n.isNumeric(e) ? e : o ? f.opts.animationDuration : 0,
-                f.$slide.removeClass("fancybox-slide--complete fancybox-slide--next fancybox-slide--previous fancybox-animated"),
-                !0 !== t ? n.fancybox.stop(f.$slide) : o = !1,
+                f.$slide.removeClass("fancyboxdha-slide--complete fancyboxdha-slide--next fancyboxdha-slide--previous fancyboxdha-animated"),
+                !0 !== t ? n.fancyboxdha.stop(f.$slide) : o = !1,
                 f.$slide.siblings().trigger("onReset").remove(),
-                i && u.$refs.container.removeClass("fancybox-is-open").addClass("fancybox-is-closing").css("transition-duration", i + "ms"),
+                i && u.$refs.container.removeClass("fancyboxdha-is-open").addClass("fancyboxdha-is-closing").css("transition-duration", i + "ms"),
                 u.hideLoading(f),
                 u.hideControls(!0),
                 u.updateCursor(),
                 "zoom" !== o || a && i && "image" === f.type && !u.isMoved() && !f.hasError && (l = u.getThumbPos(f)) || (o = "fade"),
-                "zoom" === o ? (n.fancybox.stop(a),
-                s = n.fancybox.getTranslate(a),
+                "zoom" === o ? (n.fancyboxdha.stop(a),
+                s = n.fancyboxdha.getTranslate(a),
                 c = {
                     top: s.top,
                     left: s.left,
@@ -1032,10 +1032,10 @@
                 r = f.opts.zoomOpacity,
                 "auto" == r && (r = Math.abs(f.width / f.height - l.width / l.height) > .1),
                 r && (l.opacity = 0),
-                n.fancybox.setTranslate(a, c),
+                n.fancyboxdha.setTranslate(a, c),
                 p(a),
-                n.fancybox.animate(a, l, i, h),
-                !0) : (o && i ? n.fancybox.animate(f.$slide.addClass("fancybox-slide--previous").removeClass("fancybox-slide--current"), "fancybox-animated fancybox-fx-" + o, i, h) : !0 === t ? setTimeout(h, i) : h(),
+                n.fancyboxdha.animate(a, l, i, h),
+                !0) : (o && i ? n.fancyboxdha.animate(f.$slide.addClass("fancyboxdha-slide--previous").removeClass("fancyboxdha-slide--current"), "fancyboxdha-animated fancyboxdha-fx-" + o, i, h) : !0 === t ? setTimeout(h, i) : h(),
                 !0)))
             },
             cleanUp: function(e) {
@@ -1049,9 +1049,9 @@
                 r.trigger("focus"),
                 n("html, body").scrollTop(a).scrollLeft(i))),
                 s.current = null,
-                o = n.fancybox.getInstance(),
-                o ? o.activate() : (n("body").removeClass("fancybox-active compensate-for-scrollbar"),
-                n("#fancybox-style-noscroll").remove())
+                o = n.fancyboxdha.getInstance(),
+                o ? o.activate() : (n("body").removeClass("fancyboxdha-active compensate-for-scrollbar"),
+                n("#fancyboxdha-style-noscroll").remove())
             },
             trigger: function(t, e) {
                 var o, i = Array.prototype.slice.call(arguments, 1), a = this, s = e && e.opts ? e : a.current;
@@ -1073,11 +1073,11 @@
                 r && r.length ? (t.$caption = s,
                 s.children().eq(0).html(r)) : t.$caption = null,
                 t.hasHiddenControls || t.isIdle || t.showControls(),
-                a.find("[data-fancybox-count]").html(t.group.length),
-                a.find("[data-fancybox-index]").html(i + 1),
-                a.find("[data-fancybox-prev]").prop("disabled", !o.opts.loop && i <= 0),
-                a.find("[data-fancybox-next]").prop("disabled", !o.opts.loop && i >= t.group.length - 1),
-                "image" === o.type ? a.find("[data-fancybox-zoom]").show().end().find("[data-fancybox-download]").attr("href", o.opts.image.src || o.src).show() : o.opts.toolbar && a.find("[data-fancybox-download],[data-fancybox-zoom]").hide(),
+                a.find("[data-fancyboxdha-count]").html(t.group.length),
+                a.find("[data-fancyboxdha-index]").html(i + 1),
+                a.find("[data-fancyboxdha-prev]").prop("disabled", !o.opts.loop && i <= 0),
+                a.find("[data-fancyboxdha-next]").prop("disabled", !o.opts.loop && i >= t.group.length - 1),
+                "image" === o.type ? a.find("[data-fancyboxdha-zoom]").show().end().find("[data-fancyboxdha-download]").attr("href", o.opts.image.src || o.src).show() : o.opts.toolbar && a.find("[data-fancyboxdha-download],[data-fancyboxdha-zoom]").hide(),
                 n(e.activeElement).is(":hidden,[disabled]") && t.$refs.container.trigger("focus")
             },
             hideControls: function(t) {
@@ -1085,7 +1085,7 @@
                   , n = ["infobar", "toolbar", "nav"];
                 !t && e.current.opts.preventCaptionOverlap || n.push("caption"),
                 this.$refs.container.removeClass(n.map(function(t) {
-                    return "fancybox-show-" + t
+                    return "fancyboxdha-show-" + t
                 }).join(" ")),
                 this.hasHiddenControls = !0
             },
@@ -1095,17 +1095,17 @@
                   , n = t.$refs.container;
                 t.hasHiddenControls = !1,
                 t.idleSecondsCounter = 0,
-                n.toggleClass("fancybox-show-toolbar", !(!e.toolbar || !e.buttons)).toggleClass("fancybox-show-infobar", !!(e.infobar && t.group.length > 1)).toggleClass("fancybox-show-caption", !!t.$caption).toggleClass("fancybox-show-nav", !!(e.arrows && t.group.length > 1)).toggleClass("fancybox-is-modal", !!e.modal)
+                n.toggleClass("fancyboxdha-show-toolbar", !(!e.toolbar || !e.buttons)).toggleClass("fancyboxdha-show-infobar", !!(e.infobar && t.group.length > 1)).toggleClass("fancyboxdha-show-caption", !!t.$caption).toggleClass("fancyboxdha-show-nav", !!(e.arrows && t.group.length > 1)).toggleClass("fancyboxdha-is-modal", !!e.modal)
             },
             toggleControls: function() {
                 this.hasHiddenControls ? this.showControls() : this.hideControls()
             }
         }),
-        n.fancybox = {
+        n.fancyboxdha = {
             version: "3.5.7",
             defaults: a,
             getInstance: function(t) {
-                var e = n('.fancybox-container:not(".fancybox-is-closing"):last').data("FancyBox")
+                var e = n('.fancyboxdha-container:not(".fancyboxdha-is-closing"):last').data("fancyboxdha")
                   , o = Array.prototype.slice.call(arguments, 1);
                 return e instanceof b && ("string" === n.type(t) ? e[t].apply(e, o) : "function" === n.type(t) && t.apply(e, o),
                 e)
@@ -1173,8 +1173,8 @@
                 n.isNumeric(o) && t.css("transition-duration", o + "ms"),
                 n.isPlainObject(e) ? (void 0 !== e.scaleX && void 0 !== e.scaleY && (delete e.width,
                 delete e.height,
-                t.parent().hasClass("fancybox-slide--image") && t.parent().addClass("fancybox-is-scaling")),
-                n.fancybox.setTranslate(t, e)) : t.addClass(e),
+                t.parent().hasClass("fancyboxdha-slide--image") && t.parent().addClass("fancyboxdha-is-scaling")),
+                n.fancyboxdha.setTranslate(t, e)) : t.addClass(e),
                 t.data("timer", setTimeout(function() {
                     t.trigger(f)
                 }, o + 33))
@@ -1183,10 +1183,10 @@
                 t && t.length && (clearTimeout(t.data("timer")),
                 e && t.trigger(f),
                 t.off(f).css("transition-duration", ""),
-                t.parent().removeClass("fancybox-is-scaling"))
+                t.parent().removeClass("fancyboxdha-is-scaling"))
             }
         },
-        n.fn.fancybox = function(t) {
+        n.fn.fancyboxdha = function(t) {
             var e;
             return t = t || {},
             e = t.selector || !1,
@@ -1199,15 +1199,15 @@
             this
         }
         ,
-        r.on("click.fb-start", "[data-fancybox]", i),
-        r.on("click.fb-start", "[data-fancybox-trigger]", function(t) {
-            n('[data-fancybox="' + n(this).attr("data-fancybox-trigger") + '"]').eq(n(this).attr("data-fancybox-index") || 0).trigger("click.fb-start", {
+        r.on("click.fb-start", "[data-fancyboxdha]", i),
+        r.on("click.fb-start", "[data-fancyboxdha-trigger]", function(t) {
+            n('[data-fancyboxdha="' + n(this).attr("data-fancyboxdha-trigger") + '"]').eq(n(this).attr("data-fancyboxdha-index") || 0).trigger("click.fb-start", {
                 $trigger: n(this)
             })
         }),
         function() {
             var t = null;
-            r.on("mousedown mouseup focus blur", ".fancybox-button", function(e) {
+            r.on("mousedown mouseup focus blur", ".fancyboxdha-button", function(e) {
                 switch (e.type) {
                 case "mousedown":
                     t = n(this);
@@ -1216,11 +1216,11 @@
                     t = null;
                     break;
                 case "focusin":
-                    n(".fancybox-button").removeClass("fancybox-focus"),
-                    n(this).is(t) || n(this).is("[disabled]") || n(this).addClass("fancybox-focus");
+                    n(".fancyboxdha-button").removeClass("fancyboxdha-focus"),
+                    n(this).is(t) || n(this).is("[disabled]") || n(this).addClass("fancyboxdha-focus");
                     break;
                 case "focusout":
-                    n(".fancybox-button").removeClass("fancybox-focus")
+                    n(".fancyboxdha-button").removeClass("fancyboxdha-focus")
                 }
             })
         }()
@@ -1370,7 +1370,7 @@ function(t) {
         done: function(e) {
             var n, o, i;
             "youtube" === e && delete window.onYouTubeIframeAPIReady,
-            (n = t.fancybox.getInstance()) && (o = n.current.$content.find("iframe"),
+            (n = t.fancyboxdha.getInstance()) && (o = n.current.$content.find("iframe"),
             "youtube" === e && void 0 !== YT && YT ? i = new YT.Player(o.attr("id"),{
                 events: {
                     onStateChange: function(t) {
@@ -1422,7 +1422,7 @@ function(t, e, n) {
         if (t.is('a,area,button,[role="button"],input,label,select,summary,textarea,video,audio,iframe') || n.isFunction(t.get(0).onclick) || t.data("selectable"))
             return !0;
         for (var e = 0, o = t[0].attributes, i = o.length; e < i; e++)
-            if ("data-fancybox-" === o[e].nodeName.substr(0, 14))
+            if ("data-fancyboxdha-" === o[e].nodeName.substr(0, 14))
                 return !0;
         return !1
     }
@@ -1438,7 +1438,7 @@ function(t, e, n) {
             if (e = c(t.get(0)))
                 break;
             if (t = t.parent(),
-            !t.length || t.hasClass("fancybox-stage") || t.is("body"))
+            !t.length || t.hasClass("fancyboxdha-stage") || t.is("body"))
                 break
         }
         return e
@@ -1472,7 +1472,7 @@ function(t, e, n) {
           , h = "touchstart" == o.type;
         if (h && i.$container.off("mousedown.fb.touch"),
         (!o.originalEvent || 2 != o.originalEvent.button) && f.length && c.length && !r(c) && !r(c.parent()) && (c.is("img") || !(o.originalEvent.clientX > c[0].clientWidth + c.offset().left))) {
-            if (!u || d.isAnimating || u.$slide.hasClass("fancybox-animated"))
+            if (!u || d.isAnimating || u.$slide.hasClass("fancyboxdha-animated"))
                 return o.stopPropagation(),
                 void o.preventDefault();
             i.realPoints = i.startPoints = a(o),
@@ -1492,29 +1492,29 @@ function(t, e, n) {
             i.canvasWidth = Math.round(f[0].clientWidth),
             i.canvasHeight = Math.round(f[0].clientHeight),
             i.contentLastPos = null,
-            i.contentStartPos = n.fancybox.getTranslate(i.$content) || {
+            i.contentStartPos = n.fancyboxdha.getTranslate(i.$content) || {
                 top: 0,
                 left: 0
             },
-            i.sliderStartPos = n.fancybox.getTranslate(f),
-            i.stagePos = n.fancybox.getTranslate(d.$refs.stage),
+            i.sliderStartPos = n.fancyboxdha.getTranslate(f),
+            i.stagePos = n.fancyboxdha.getTranslate(d.$refs.stage),
             i.sliderStartPos.top -= i.stagePos.top,
             i.sliderStartPos.left -= i.stagePos.left,
             i.contentStartPos.top -= i.stagePos.top,
             i.contentStartPos.left -= i.stagePos.left,
             n(e).off(".fb.touch").on(h ? "touchend.fb.touch touchcancel.fb.touch" : "mouseup.fb.touch mouseleave.fb.touch", n.proxy(i, "ontouchend")).on(h ? "touchmove.fb.touch" : "mousemove.fb.touch", n.proxy(i, "ontouchmove")),
-            n.fancybox.isMobile && e.addEventListener("scroll", i.onscroll, !0),
-            ((i.opts || i.canPan) && (c.is(i.$stage) || i.$stage.find(c).length) || (c.is(".fancybox-image") && o.preventDefault(),
-            n.fancybox.isMobile && c.parents(".fancybox-caption").length)) && (i.isScrollable = l(c) || l(c.parent()),
-            n.fancybox.isMobile && i.isScrollable || o.preventDefault(),
-            (1 === i.startPoints.length || u.hasError) && (i.canPan ? (n.fancybox.stop(i.$content),
+            n.fancyboxdha.isMobile && e.addEventListener("scroll", i.onscroll, !0),
+            ((i.opts || i.canPan) && (c.is(i.$stage) || i.$stage.find(c).length) || (c.is(".fancyboxdha-image") && o.preventDefault(),
+            n.fancyboxdha.isMobile && c.parents(".fancyboxdha-caption").length)) && (i.isScrollable = l(c) || l(c.parent()),
+            n.fancyboxdha.isMobile && i.isScrollable || o.preventDefault(),
+            (1 === i.startPoints.length || u.hasError) && (i.canPan ? (n.fancyboxdha.stop(i.$content),
             i.isPanning = !0) : i.isSwiping = !0,
-            i.$container.addClass("fancybox-is-grabbing")),
+            i.$container.addClass("fancyboxdha-is-grabbing")),
             2 === i.startPoints.length && "image" === u.type && (u.isLoaded || u.$ghost) && (i.canTap = !1,
             i.isSwiping = !1,
             i.isPanning = !1,
             i.isZooming = !0,
-            n.fancybox.stop(i.$content),
+            n.fancyboxdha.stop(i.$content),
             i.centerPointStartX = .5 * (i.startPoints[0].x + i.startPoints[1].x) - n(t).scrollLeft(),
             i.centerPointStartY = .5 * (i.startPoints[0].y + i.startPoints[1].y) - n(t).scrollTop(),
             i.percentageOfImageAtPinchPointX = (i.centerPointStartX - i.contentStartPos.left) / i.contentStartPos.width,
@@ -1552,36 +1552,36 @@ function(t, e, n) {
             s.requestId = o(function() {
                 s.sliderLastPos && (n.each(s.instance.slides, function(t, e) {
                     var o = e.pos - s.instance.currPos;
-                    n.fancybox.setTranslate(e.$slide, {
+                    n.fancyboxdha.setTranslate(e.$slide, {
                         top: s.sliderLastPos.top,
                         left: s.sliderLastPos.left + o * s.canvasWidth + o * e.opts.gutter
                     })
                 }),
-                s.$container.addClass("fancybox-is-sliding"))
+                s.$container.addClass("fancyboxdha-is-sliding"))
             });
         else if (Math.abs(s.distance) > 10) {
             if (s.canTap = !1,
             r.group.length < 2 && s.opts.vertical ? s.isSwiping = "y" : r.isDragging || !1 === s.opts.vertical || "auto" === s.opts.vertical && n(t).width() > 800 ? s.isSwiping = "x" : (a = Math.abs(180 * Math.atan2(s.distanceY, s.distanceX) / Math.PI),
             s.isSwiping = a > 45 && a < 135 ? "y" : "x"),
-            "y" === s.isSwiping && n.fancybox.isMobile && s.isScrollable)
+            "y" === s.isSwiping && n.fancyboxdha.isMobile && s.isScrollable)
                 return void (s.isScrolling = !0);
             r.isDragging = s.isSwiping,
             s.startPoints = s.newPoints,
             n.each(r.slides, function(t, e) {
                 var o, i;
-                n.fancybox.stop(e.$slide),
-                o = n.fancybox.getTranslate(e.$slide),
-                i = n.fancybox.getTranslate(r.$refs.stage),
+                n.fancyboxdha.stop(e.$slide),
+                o = n.fancyboxdha.getTranslate(e.$slide),
+                i = n.fancyboxdha.getTranslate(r.$refs.stage),
                 e.$slide.css({
                     transform: "",
                     opacity: "",
                     "transition-duration": ""
-                }).removeClass("fancybox-animated").removeClass(function(t, e) {
-                    return (e.match(/(^|\s)fancybox-fx-\S+/g) || []).join(" ")
+                }).removeClass("fancyboxdha-animated").removeClass(function(t, e) {
+                    return (e.match(/(^|\s)fancyboxdha-fx-\S+/g) || []).join(" ")
                 }),
                 e.pos === r.current.pos && (s.sliderStartPos.top = o.top - i.top,
                 s.sliderStartPos.left = o.left - i.left),
-                n.fancybox.setTranslate(e.$slide, {
+                n.fancyboxdha.setTranslate(e.$slide, {
                     top: o.top - i.top,
                     left: o.left - i.left
                 })
@@ -1592,13 +1592,13 @@ function(t, e, n) {
     ,
     d.prototype.onPan = function() {
         var t = this;
-        if (s(t.newPoints[0], t.realPoints[0]) < (n.fancybox.isMobile ? 10 : 5))
+        if (s(t.newPoints[0], t.realPoints[0]) < (n.fancyboxdha.isMobile ? 10 : 5))
             return void (t.startPoints = t.newPoints);
         t.canTap = !1,
         t.contentLastPos = t.limitMovement(),
         t.requestId && i(t.requestId),
         t.requestId = o(function() {
-            n.fancybox.setTranslate(t.$content, t.contentLastPos)
+            n.fancyboxdha.setTranslate(t.$content, t.contentLastPos)
         })
     }
     ,
@@ -1665,7 +1665,7 @@ function(t, e, n) {
         e.contentLastPos = S,
         e.requestId && i(e.requestId),
         e.requestId = o(function() {
-            n.fancybox.setTranslate(e.$content, e.contentLastPos)
+            n.fancyboxdha.setTranslate(e.$content, e.contentLastPos)
         })
     }
     ,
@@ -1677,7 +1677,7 @@ function(t, e, n) {
           , l = o.isScrolling;
         if (o.endPoints = a(t),
         o.dMs = Math.max((new Date).getTime() - o.startTime, 1),
-        o.$container.removeClass("fancybox-is-grabbing"),
+        o.$container.removeClass("fancyboxdha-is-grabbing"),
         n(e).off(".fb.touch"),
         e.removeEventListener("scroll", o.onscroll, !0),
         o.requestId && (i(o.requestId),
@@ -1702,13 +1702,13 @@ function(t, e, n) {
           , s = Math.abs(o.distanceX)
           , r = "x" == t && a > 1 && (o.dMs > 130 && s > 10 || s > 50);
         o.sliderLastPos = null,
-        "y" == t && !e && Math.abs(o.distanceY) > 50 ? (n.fancybox.animate(o.instance.current.$slide, {
+        "y" == t && !e && Math.abs(o.distanceY) > 50 ? (n.fancyboxdha.animate(o.instance.current.$slide, {
             top: o.sliderStartPos.top + o.distanceY + 150 * o.velocityY,
             opacity: 0
         }, 200),
         i = o.instance.close(!0, 250)) : r && o.distanceX > 0 ? i = o.instance.previous(300) : r && o.distanceX < 0 && (i = o.instance.next(300)),
         !1 !== i || "x" != t && "y" != t || o.instance.centerSlide(200),
-        o.$container.removeClass("fancybox-is-sliding")
+        o.$container.removeClass("fancyboxdha-is-sliding")
     }
     ,
     d.prototype.endPanning = function() {
@@ -1719,7 +1719,7 @@ function(t, e, n) {
         o = i.limitPosition(t, e, i.contentStartPos.width, i.contentStartPos.height),
         o.width = i.contentStartPos.width,
         o.height = i.contentStartPos.height,
-        n.fancybox.animate(i.$content, o, 366))
+        n.fancyboxdha.animate(i.$content, o, 366))
     }
     ,
     d.prototype.endZooming = function() {
@@ -1734,9 +1734,9 @@ function(t, e, n) {
             scaleX: 1,
             scaleY: 1
         },
-        n.fancybox.setTranslate(a.$content, i),
+        n.fancyboxdha.setTranslate(a.$content, i),
         r < a.canvasWidth && c < a.canvasHeight ? a.instance.scaleToFit(150) : r > s.width || c > s.height ? a.instance.scaleToActual(a.centerPointStartX, a.centerPointStartY, 150) : (o = a.limitPosition(t, e, r, c),
-        n.fancybox.animate(a.$content, o, 150)))
+        n.fancyboxdha.animate(a.$content, o, 150)))
     }
     ,
     d.prototype.onTap = function(e) {
@@ -1762,9 +1762,9 @@ function(t, e, n) {
                 }
         };
         if ((!e.originalEvent || 2 != e.originalEvent.button) && (s.is("img") || !(d > s[0].clientWidth + s.offset().left))) {
-            if (s.is(".fancybox-bg,.fancybox-inner,.fancybox-outer,.fancybox-container"))
+            if (s.is(".fancyboxdha-bg,.fancyboxdha-inner,.fancyboxdha-outer,.fancyboxdha-container"))
                 o = "Outside";
-            else if (s.is(".fancybox-slide"))
+            else if (s.is(".fancyboxdha-slide"))
                 o = "Slide";
             else {
                 if (!r.current.$content || !r.current.$content.find(s).addBack().filter(s).length)
@@ -1796,9 +1796,9 @@ function(t, e, n) {
 }(window, document, jQuery),
 function(t, e) {
     "use strict";
-    e.extend(!0, e.fancybox.defaults, {
+    e.extend(!0, e.fancyboxdha.defaults, {
         btnTpl: {
-            slideShow: '<button data-fancybox-play class="fancybox-button fancybox-button--play" title="{{PLAY_START}}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 5.4v13.2l11-6.6z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.33 5.75h2.2v12.5h-2.2V5.75zm5.15 0h2.2v12.5h-2.2V5.75z"/></svg></button>'
+            slideShow: '<button data-fancyboxdha-play class="fancyboxdha-button fancyboxdha-button--play" title="{{PLAY_START}}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 5.4v13.2l11-6.6z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.33 5.75h2.2v12.5h-2.2V5.75zm5.15 0h2.2v12.5h-2.2V5.75z"/></svg></button>'
         },
         slideShow: {
             autoStart: !1,
@@ -1818,16 +1818,16 @@ function(t, e) {
             var t = this
               , n = t.instance
               , o = n.group[n.currIndex].opts.slideShow;
-            t.$button = n.$refs.toolbar.find("[data-fancybox-play]").on("click", function() {
+            t.$button = n.$refs.toolbar.find("[data-fancyboxdha-play]").on("click", function() {
                 t.toggle()
             }),
-            n.group.length < 2 || !o ? t.$button.hide() : o.progress && (t.$progress = e('<div class="fancybox-progress"></div>').appendTo(n.$refs.inner))
+            n.group.length < 2 || !o ? t.$button.hide() : o.progress && (t.$progress = e('<div class="fancyboxdha-progress"></div>').appendTo(n.$refs.inner))
         },
         set: function(t) {
             var n = this
               , o = n.instance
               , i = o.current;
-            i && (!0 === t || i.opts.loop || o.currIndex < o.group.length - 1) ? n.isActive && "video" !== i.contentType && (n.$progress && e.fancybox.animate(n.$progress.show(), {
+            i && (!0 === t || i.opts.loop || o.currIndex < o.group.length - 1) ? n.isActive && "video" !== i.contentType && (n.$progress && e.fancyboxdha.animate(n.$progress.show(), {
                 scaleX: 1
             }, i.opts.slideShow.speed),
             n.timer = setTimeout(function() {
@@ -1845,7 +1845,7 @@ function(t, e) {
         start: function() {
             var t = this
               , e = t.instance.current;
-            e && (t.$button.attr("title", (e.opts.i18n[e.opts.lang] || e.opts.i18n.en).PLAY_STOP).removeClass("fancybox-button--play").addClass("fancybox-button--pause"),
+            e && (t.$button.attr("title", (e.opts.i18n[e.opts.lang] || e.opts.i18n.en).PLAY_STOP).removeClass("fancyboxdha-button--play").addClass("fancyboxdha-button--pause"),
             t.isActive = !0,
             e.isComplete && t.set(!0),
             t.instance.trigger("onSlideShowChange", !0))
@@ -1854,7 +1854,7 @@ function(t, e) {
             var t = this
               , e = t.instance.current;
             t.clear(),
-            t.$button.attr("title", (e.opts.i18n[e.opts.lang] || e.opts.i18n.en).PLAY_START).removeClass("fancybox-button--pause").addClass("fancybox-button--play"),
+            t.$button.attr("title", (e.opts.i18n[e.opts.lang] || e.opts.i18n.en).PLAY_START).removeClass("fancyboxdha-button--pause").addClass("fancyboxdha-button--play"),
             t.isActive = !1,
             t.instance.trigger("onSlideShowChange", !1),
             t.$progress && t.$progress.removeAttr("style").hide()
@@ -1887,7 +1887,7 @@ function(t, e) {
         }
     }),
     e(t).on("visibilitychange", function() {
-        var n = e.fancybox.getInstance()
+        var n = e.fancyboxdha.getInstance()
           , o = n && n.SlideShow;
         o && o.isActive && (t.hidden ? o.clear() : o.set())
     })
@@ -1925,9 +1925,9 @@ function(t, e) {
                 return Boolean(t[n.fullscreenEnabled])
             }
         };
-        e.extend(!0, e.fancybox.defaults, {
+        e.extend(!0, e.fancyboxdha.defaults, {
             btnTpl: {
-                fullScreen: '<button data-fancybox-fullscreen class="fancybox-button fancybox-button--fsenter" title="{{FULL_SCREEN}}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 16h3v3h2v-5H5zm3-8H5v2h5V5H8zm6 11h2v-3h3v-2h-5zm2-11V5h-2v5h5V8z"/></svg></button>'
+                fullScreen: '<button data-fancyboxdha-fullscreen class="fancyboxdha-button fancyboxdha-button--fsenter" title="{{FULL_SCREEN}}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 16h3v3h2v-5H5zm3-8H5v2h5V5H8zm6 11h2v-3h3v-2h-5zm2-11V5h-2v5h5V8z"/></svg></button>'
             },
             fullScreen: {
                 autoStart: !1
@@ -1935,52 +1935,52 @@ function(t, e) {
         }),
         e(t).on(n.fullscreenchange, function() {
             var t = o.isFullscreen()
-              , n = e.fancybox.getInstance();
+              , n = e.fancyboxdha.getInstance();
             n && (n.current && "image" === n.current.type && n.isAnimating && (n.isAnimating = !1,
             n.update(!0, !0, 0),
             n.isComplete || n.complete()),
             n.trigger("onFullscreenChange", t),
-            n.$refs.container.toggleClass("fancybox-is-fullscreen", t),
-            n.$refs.toolbar.find("[data-fancybox-fullscreen]").toggleClass("fancybox-button--fsenter", !t).toggleClass("fancybox-button--fsexit", t))
+            n.$refs.container.toggleClass("fancyboxdha-is-fullscreen", t),
+            n.$refs.toolbar.find("[data-fancyboxdha-fullscreen]").toggleClass("fancyboxdha-button--fsenter", !t).toggleClass("fancyboxdha-button--fsexit", t))
         })
     }
     e(t).on({
         "onInit.fb": function(t, e) {
             var i;
             if (!n)
-                return void e.$refs.toolbar.find("[data-fancybox-fullscreen]").remove();
+                return void e.$refs.toolbar.find("[data-fancyboxdha-fullscreen]").remove();
             e && e.group[e.currIndex].opts.fullScreen ? (i = e.$refs.container,
-            i.on("click.fb-fullscreen", "[data-fancybox-fullscreen]", function(t) {
+            i.on("click.fb-fullscreen", "[data-fancyboxdha-fullscreen]", function(t) {
                 t.stopPropagation(),
                 t.preventDefault(),
                 o.toggle()
             }),
             e.opts.fullScreen && !0 === e.opts.fullScreen.autoStart && o.request(),
-            e.FullScreen = o) : e && e.$refs.toolbar.find("[data-fancybox-fullscreen]").hide()
+            e.FullScreen = o) : e && e.$refs.toolbar.find("[data-fancyboxdha-fullscreen]").hide()
         },
         "afterKeydown.fb": function(t, e, n, o, i) {
             e && e.FullScreen && 70 === i && (o.preventDefault(),
             e.FullScreen.toggle())
         },
         "beforeClose.fb": function(t, e) {
-            e && e.FullScreen && e.$refs.container.hasClass("fancybox-is-fullscreen") && o.exit()
+            e && e.FullScreen && e.$refs.container.hasClass("fancyboxdha-is-fullscreen") && o.exit()
         }
     })
 }(document, jQuery),
 function(t, e) {
     "use strict";
-    var n = "fancybox-thumbs";
-    e.fancybox.defaults = e.extend(!0, {
+    var n = "fancyboxdha-thumbs";
+    e.fancyboxdha.defaults = e.extend(!0, {
         btnTpl: {
-            thumbs: '<button data-fancybox-thumbs class="fancybox-button fancybox-button--thumbs" title="{{THUMBS}}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.59 14.59h3.76v3.76h-3.76v-3.76zm-4.47 0h3.76v3.76h-3.76v-3.76zm-4.47 0h3.76v3.76H5.65v-3.76zm8.94-4.47h3.76v3.76h-3.76v-3.76zm-4.47 0h3.76v3.76h-3.76v-3.76zm-4.47 0h3.76v3.76H5.65v-3.76zm8.94-4.47h3.76v3.76h-3.76V5.65zm-4.47 0h3.76v3.76h-3.76V5.65zm-4.47 0h3.76v3.76H5.65V5.65z"/></svg></button>'
+            thumbs: '<button data-fancyboxdha-thumbs class="fancyboxdha-button fancyboxdha-button--thumbs" title="{{THUMBS}}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.59 14.59h3.76v3.76h-3.76v-3.76zm-4.47 0h3.76v3.76h-3.76v-3.76zm-4.47 0h3.76v3.76H5.65v-3.76zm8.94-4.47h3.76v3.76h-3.76v-3.76zm-4.47 0h3.76v3.76h-3.76v-3.76zm-4.47 0h3.76v3.76H5.65v-3.76zm8.94-4.47h3.76v3.76h-3.76V5.65zm-4.47 0h3.76v3.76h-3.76V5.65zm-4.47 0h3.76v3.76H5.65V5.65z"/></svg></button>'
         },
         thumbs: {
             autoStart: !1,
             hideOnClose: !0,
-            parentEl: ".fancybox-container",
+            parentEl: ".fancyboxdha-container",
             axis: "y"
         }
-    }, e.fancybox.defaults);
+    }, e.fancyboxdha.defaults);
     var o = function(t) {
         this.init(t)
     };
@@ -1997,7 +1997,7 @@ function(t, e) {
             e.instance = t,
             e.opts = n[t.currIndex].opts.thumbs,
             t.Thumbs = e,
-            e.$button = t.$refs.toolbar.find("[data-fancybox-thumbs]");
+            e.$button = t.$refs.toolbar.find("[data-fancyboxdha-thumbs]");
             for (var i = 0, a = n.length; i < a && (n[i].thumb && o++,
             !(o > 1)); i++)
                 ;
@@ -2016,14 +2016,14 @@ function(t, e) {
             e.each(i.group, function(e, n) {
                 t = n.thumb,
                 t || "image" !== n.type || (t = n.src),
-                s.push('<a href="javascript:;" tabindex="0" data-index="' + e + '"' + (t && t.length ? ' style="background-image:url(' + t + ')"' : 'class="fancybox-thumbs-missing"') + "></a>")
+                s.push('<a href="javascript:;" tabindex="0" data-index="' + e + '"' + (t && t.length ? ' style="background-image:url(' + t + ')"' : 'class="fancyboxdha-thumbs-missing"') + "></a>")
             }),
             o.$list[0].innerHTML = s.join(""),
             "x" === o.opts.axis && o.$list.width(parseInt(o.$grid.css("padding-right"), 10) + i.group.length * o.$list.children().eq(0).outerWidth(!0))
         },
         focus: function(t) {
             var e, n, o = this, i = o.$list, a = o.$grid;
-            o.instance.current && (e = i.children().removeClass("fancybox-thumbs-active").filter('[data-index="' + o.instance.current.index + '"]').addClass("fancybox-thumbs-active"),
+            o.instance.current && (e = i.children().removeClass("fancyboxdha-thumbs-active").filter('[data-index="' + o.instance.current.index + '"]').addClass("fancyboxdha-thumbs-active"),
             n = e.position(),
             "y" === o.opts.axis && (n.top < 0 || n.top > i.height() - e.outerHeight()) ? i.stop().animate({
                 scrollTop: i.scrollTop() + n.top
@@ -2033,7 +2033,7 @@ function(t, e) {
         },
         update: function() {
             var t = this;
-            t.instance.$refs.container.toggleClass("fancybox-show-thumbs", this.isVisible),
+            t.instance.$refs.container.toggleClass("fancyboxdha-show-thumbs", this.isVisible),
             t.isVisible ? (t.$grid || t.create(),
             t.instance.trigger("onThumbsShow"),
             t.focus(0)) : t.$grid && t.instance.trigger("onThumbsHide"),
@@ -2090,22 +2090,22 @@ function(t, e) {
             return e[t]
         })
     }
-    e.extend(!0, e.fancybox.defaults, {
+    e.extend(!0, e.fancyboxdha.defaults, {
         btnTpl: {
-            share: '<button data-fancybox-share class="fancybox-button fancybox-button--share" title="{{SHARE}}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.55 19c1.4-8.4 9.1-9.8 11.9-9.8V5l7 7-7 6.3v-3.5c-2.8 0-10.5 2.1-11.9 4.2z"/></svg></button>'
+            share: '<button data-fancyboxdha-share class="fancyboxdha-button fancyboxdha-button--share" title="{{SHARE}}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.55 19c1.4-8.4 9.1-9.8 11.9-9.8V5l7 7-7 6.3v-3.5c-2.8 0-10.5 2.1-11.9 4.2z"/></svg></button>'
         },
         share: {
             url: function(t, e) {
                 return !t.currentHash && "inline" !== e.type && "html" !== e.type && (e.origSrc || e.src) || window.location
             },
-            tpl: '<div class="fancybox-share"><h1>{{SHARE}}</h1><p><a class="fancybox-share__button fancybox-share__button--fb" href="https://www.facebook.com/sharer/sharer.php?u={{url}}"><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m287 456v-299c0-21 6-35 35-35h38v-63c-7-1-29-3-55-3-54 0-91 33-91 94v306m143-254h-205v72h196" /></svg><span>Facebook</span></a><a class="fancybox-share__button fancybox-share__button--tw" href="https://twitter.com/intent/tweet?url={{url}}&text={{descr}}"><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m456 133c-14 7-31 11-47 13 17-10 30-27 37-46-15 10-34 16-52 20-61-62-157-7-141 75-68-3-129-35-169-85-22 37-11 86 26 109-13 0-26-4-37-9 0 39 28 72 65 80-12 3-25 4-37 2 10 33 41 57 77 57-42 30-77 38-122 34 170 111 378-32 359-208 16-11 30-25 41-42z" /></svg><span>Twitter</span></a><a class="fancybox-share__button fancybox-share__button--pt" href="https://www.pinterest.com/pin/create/button/?url={{url}}&description={{descr}}&media={{media}}"><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m265 56c-109 0-164 78-164 144 0 39 15 74 47 87 5 2 10 0 12-5l4-19c2-6 1-8-3-13-9-11-15-25-15-45 0-58 43-110 113-110 62 0 96 38 96 88 0 67-30 122-73 122-24 0-42-19-36-44 6-29 20-60 20-81 0-19-10-35-31-35-25 0-44 26-44 60 0 21 7 36 7 36l-30 125c-8 37-1 83 0 87 0 3 4 4 5 2 2-3 32-39 42-75l16-64c8 16 31 29 56 29 74 0 124-67 124-157 0-69-58-132-146-132z" fill="#fff"/></svg><span>Pinterest</span></a></p><p><input class="fancybox-share__input" type="text" value="{{url_raw}}" onclick="select()" /></p></div>'
+            tpl: '<div class="fancyboxdha-share"><h1>{{SHARE}}</h1><p><a class="fancyboxdha-share__button fancyboxdha-share__button--fb" href="https://www.facebook.com/sharer/sharer.php?u={{url}}"><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m287 456v-299c0-21 6-35 35-35h38v-63c-7-1-29-3-55-3-54 0-91 33-91 94v306m143-254h-205v72h196" /></svg><span>Facebook</span></a><a class="fancyboxdha-share__button fancyboxdha-share__button--tw" href="https://twitter.com/intent/tweet?url={{url}}&text={{descr}}"><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m456 133c-14 7-31 11-47 13 17-10 30-27 37-46-15 10-34 16-52 20-61-62-157-7-141 75-68-3-129-35-169-85-22 37-11 86 26 109-13 0-26-4-37-9 0 39 28 72 65 80-12 3-25 4-37 2 10 33 41 57 77 57-42 30-77 38-122 34 170 111 378-32 359-208 16-11 30-25 41-42z" /></svg><span>Twitter</span></a><a class="fancyboxdha-share__button fancyboxdha-share__button--pt" href="https://www.pinterest.com/pin/create/button/?url={{url}}&description={{descr}}&media={{media}}"><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m265 56c-109 0-164 78-164 144 0 39 15 74 47 87 5 2 10 0 12-5l4-19c2-6 1-8-3-13-9-11-15-25-15-45 0-58 43-110 113-110 62 0 96 38 96 88 0 67-30 122-73 122-24 0-42-19-36-44 6-29 20-60 20-81 0-19-10-35-31-35-25 0-44 26-44 60 0 21 7 36 7 36l-30 125c-8 37-1 83 0 87 0 3 4 4 5 2 2-3 32-39 42-75l16-64c8 16 31 29 56 29 74 0 124-67 124-157 0-69-58-132-146-132z" fill="#fff"/></svg><span>Pinterest</span></a></p><p><input class="fancyboxdha-share__input" type="text" value="{{url_raw}}" onclick="select()" /></p></div>'
         }
     }),
-    e(t).on("click", "[data-fancybox-share]", function() {
-        var t, o, i = e.fancybox.getInstance(), a = i.current || null;
+    e(t).on("click", "[data-fancyboxdha-share]", function() {
+        var t, o, i = e.fancyboxdha.getInstance(), a = i.current || null;
         a && ("function" === e.type(a.opts.share.url) && (t = a.opts.share.url.apply(a, [i, a])),
         o = a.opts.share.tpl.replace(/\{\{media\}\}/g, "image" === a.type ? encodeURIComponent(a.src) : "").replace(/\{\{url\}\}/g, encodeURIComponent(t)).replace(/\{\{url_raw\}\}/g, n(t)).replace(/\{\{descr\}\}/g, i.$caption ? encodeURIComponent(i.$caption.text()) : ""),
-        e.fancybox.open({
+        e.fancyboxdha.open({
             src: i.translate(i, o),
             type: "html",
             opts: {
@@ -2115,7 +2115,7 @@ function(t, e) {
                     i.$refs.container.one("beforeClose.fb", function() {
                         t.close(null, 0)
                     }),
-                    e.$content.find(".fancybox-share__button").click(function() {
+                    e.$content.find(".fancyboxdha-share__button").click(function() {
                         return window.open(this.href, "Share", "width=550, height=450"),
                         !1
                     })
@@ -2141,12 +2141,12 @@ function(t, e, n) {
         }
     }
     function i(t) {
-        "" !== t.gallery && n("[data-fancybox='" + n.escapeSelector(t.gallery) + "']").eq(t.index - 1).focus().trigger("click.fb-start")
+        "" !== t.gallery && n("[data-fancyboxdha='" + n.escapeSelector(t.gallery) + "']").eq(t.index - 1).focus().trigger("click.fb-start")
     }
     function a(t) {
         var e, n;
         return !!t && (e = t.current ? t.current.opts : t.opts,
-        "" !== (n = e.hash || (e.$orig ? e.$orig.data("fancybox") || e.$orig.data("fancybox-trigger") : "")) && n)
+        "" !== (n = e.hash || (e.$orig ? e.$orig.data("fancyboxdha") || e.$orig.data("fancyboxdha-trigger") : "")) && n)
     }
     n.escapeSelector || (n.escapeSelector = function(t) {
         return (t + "").replace(/([\0-\x1f\x7f]|^-?\d)|^-$|[^\x80-\uFFFF\w-]/g, function(t, e) {
@@ -2155,7 +2155,7 @@ function(t, e, n) {
     }
     ),
     n(function() {
-        !1 !== n.fancybox.defaults.hash && (n(e).on({
+        !1 !== n.fancyboxdha.defaults.hash && (n(e).on({
             "onInit.fb": function(t, e) {
                 var n, i;
                 !1 !== e.group[e.currIndex].opts.hash && (n = o(),
@@ -2181,8 +2181,8 @@ function(t, e, n) {
         n(t).on("hashchange.fb", function() {
             var t = o()
               , e = null;
-            n.each(n(".fancybox-container").get().reverse(), function(t, o) {
-                var i = n(o).data("FancyBox");
+            n.each(n(".fancyboxdha-container").get().reverse(), function(t, o) {
+                var i = n(o).data("fancyboxdha");
                 if (i && i.currentHash)
                     return e = i,
                     !1
@@ -2191,7 +2191,7 @@ function(t, e, n) {
             e.close()) : "" !== t.gallery && i(t)
         }),
         setTimeout(function() {
-            n.fancybox.getInstance() || i(o())
+            n.fancyboxdha.getInstance() || i(o())
         }, 50))
     })
 }(window, document, jQuery),
@@ -2205,7 +2205,7 @@ function(t, e) {
                   , i = (new Date).getTime();
                 e.group.length < 2 || !1 === o.opts.wheel || "auto" === o.opts.wheel && "image" !== o.type || (t.preventDefault(),
                 t.stopPropagation(),
-                o.$slide.hasClass("fancybox-animated") || (t = t.originalEvent || t,
+                o.$slide.hasClass("fancyboxdha-animated") || (t = t.originalEvent || t,
                 i - n < 250 || (n = i,
                 e[(-t.deltaY || -t.deltaX || t.wheelDelta || -t.detail) < 0 ? "next" : "previous"]())))
             })
